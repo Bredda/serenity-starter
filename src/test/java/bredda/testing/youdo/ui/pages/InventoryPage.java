@@ -22,7 +22,7 @@ public class InventoryPage extends UIInteractions {
     @Step("Ajouter au panier le produit: {0}")
     public void ajouterAuPanier(String nomItem) {
         this.waitForAnyTextToAppear(nomItem);
-        System.out.println(items.size());
+        System.out.println("Sizes " + items.size());
         WebElementFacade item = items.stream().filter(e ->
             e.findElement(By.cssSelector(".inventory_item_name")).getText().equals(nomItem)
         ).findFirst().orElseThrow(() -> new TestCompromisedException(String.format("Produit %s non trouvé", nomItem)));
